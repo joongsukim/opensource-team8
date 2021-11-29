@@ -3,17 +3,8 @@ from django.shortcuts import render, redirect
 from .forms import *
 from .detect import *
 from django.views.decorators.csrf import csrf_exempt
-
-import time
-from absl import app, flags, logging
-import cv2
-import numpy as np
-import tensorflow as tf
-from .yolov3_tf2.models import (
-    YoloV3, YoloV3Tiny
-)
-from .yolov3_tf2.dataset import transform_images, load_tfrecord_dataset
-from .yolov3_tf2.utils import draw_outputs
+from .models import Photo
+from django.db import models
 
 # Create your views here.
 def dog_image_view(request):
@@ -39,7 +30,12 @@ def success(request):
 def process(request):
     # 이미지 불러와서 감정 분석 처리하기
     # https://heannim-world.tistory.com/39 참고해서 진행
-    dog = Photo.objects.all().order_by('-id')[:1]
-    #detect(dog, './media/images') #detect('파일 경로', 'output 경로')
+    dogs = Photo.objects.all().order_by('-id')[:1]
 
-    return render(request, "process_result.html")
+    for dog in dogs:
+        dog_pwd='./media/'+dog.dog_image.name #dog.dog_image.name은 이미지 파일의 이름 불러옴
+
+    detect(dog_pwd, './imgupload/static/images/') #detect('파일 경로', 'output 경로')
+    class_names = [c.strip() for c in open('./imgupload/data/labels/dogs.names').readlines()]
+
+    return render(request, 'process_result.html', {'dog_images': dogs})

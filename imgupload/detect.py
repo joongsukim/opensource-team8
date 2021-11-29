@@ -23,15 +23,15 @@ def detect(input_jpg, output):
     yolo.load_weights('./imgupload/weights/yolov3-dog.tf').expect_partial()
     print('weights loaded')
 
+    #label
     class_names = [c.strip() for c in open('./imgupload/data/labels/dogs.names').readlines()]
     print('classes loaded')
 
     raw_images = []
     images = input_jpg
-    for image in images:
-        img_raw = tf.image.decode_image(
-            open(image, 'rb').read(), channels=3)
-        raw_images.append(img_raw)
+    img_raw = tf.image.decode_image(
+        open(images, 'rb').read(), channels=3)
+    raw_images.append(img_raw)
     num = 0
     for raw_img in raw_images:
         num += 1
@@ -53,3 +53,4 @@ def detect(input_jpg, output):
         img = draw_outputs(img, (boxes, scores, classes, nums), class_names)
         cv2.imwrite(output + 'detection' + str(num) + '.jpg', img)
         print('output saved to: {}'.format(output + 'detection' + str(num) + '.jpg'))
+

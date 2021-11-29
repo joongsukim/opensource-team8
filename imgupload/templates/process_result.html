@@ -1,25 +1,48 @@
 <!DOCTYPE html>
+
+{% load static %}
 <html lang="ko">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+    body
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    p
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: white;
+    }
+
+    h1
+    {
+        color: white;
+    }
+
+</style>
 <head>
     <meta charset="UTF-8">
     <title>분석 결과</title>
 </head>
-<body>
- <h1 align="center"> 현재 강아지의 기분은? </h1>
-<!--처리결과 이미지 삽입-->
-<!-- 이미지 링크 걸기 -->
-<!--    <img src="">    -->
+<body align="center" bgcolor='#666666'>
+    {% for dog in dog_images %}
+        <!-- 가운데 정렬 완료 -->
+        <h1> 현재 {{ dog.name }}의 기분은? </h1> <!-- {{ dog.name }}은 강아지 이름-->
+    {% endfor %}
 
-<!-- html, css로 기존 기획한 페이지처럼 구성. 수정 전에는 이 부분을 지우고 서버 실행시키기 -->
-<!-- {% if  %}  처리 결과가 레이블이 무표정일 경우 -->
-<!--     <p>저는 지금 그냥 그래요 ૮ ・ﻌ・ა</p> 문구 예쁘게 다듬기 -->
-<!-- {% elif %}  처리 결과가 레이블이 기쁨일 경우 -->
-<!--     <p>저는 지금 기뻐요 ๑'ٮ'๑</p>  -->
-<!-- {% elif %}  처리 결과가 레이블이 화남/위협일 경우 -->
-<!--     <p>저는 지금 화나요 ٩(๑`ȏ´๑)۶</p>  -->
-<!-- {% else %}  -->
-<!--     <p>지금 기분을 잘 모르겠어요</p> -->
-<!-- {% endif %} -->
-
+    <!--분석 결과 이미지 삽입-->
+    <img src = "{%static 'images/detection1.jpg'%}">
+    <!-- html, css로 기존 기획한 페이지처럼 구성. 수정 전에는 이 부분을 지우고 서버 실행시키기 -->
+    {% if 'neutral' in class_names %}  <!-- 라벨링 결과가 레이블이 무표정일 경우 -->
+         <p>저는 지금 그냥 그래요 ૮ ・ﻌ・ა</p>
+    {% elif 'smile' in class_names %}  <!-- 라벨링 결과가 'smile'일 경우 -->
+         <p>저는 지금 기뻐요 ๑'ٮ'๑</p>
+    {% elif 'angry' in class_names %}  <!-- 라벨링 결과가 레이블이 'angry'일 경우 -->
+         <p>저는 지금 화나요 ٩(๑`ȏ´๑)۶</p>
+    {% else %}
+         <p>지금 기분을 잘 모르겠어요 (◉_◉)</p>
+    {% endif %}
 </body>
 </html>
