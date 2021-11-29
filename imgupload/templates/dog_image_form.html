@@ -1,16 +1,40 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+    body
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1
+    {
+        color: white;
+    }
+
+    form
+    {
+        color: white;
+    }
+
+
+</style>
+
 <head>
     <meta charset="UTF-8">
     <title>강아지 감정 분석</title>
 </head>
-<body>
+<body bgcolor="#666666">
+<div align="center">
+    <h1>반려견 정보 등록</h1>
     <form method = "post" enctype="multipart/form-data">
         <input type="hidden" name="csrfmiddlewaretoken" value="uzsrA6qxqPfXApi4UhegtWC2aZu8QpXFrybmnL4ku7TDQRHLQ704H3fLdWA4ybsG">
         <p><label for="id_name">강아지 이름:</label> <input type="text" name="name" maxlength="50" required id="id_name"></p>
         <p><label for="id_dog_image">강아지 사진:</label> <input type="file" name="dog_image" accept="image/*" required id="id_dog_image"></p>
         <button type="submit">사진 등록</button>
     </form>
+</div>
 </body>
 </html>

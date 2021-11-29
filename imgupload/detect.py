@@ -20,7 +20,7 @@ def detect(input_jpg, output):
     else:
         yolo = YoloV3(classes=3)
 
-    yolo.load_weights('./imgupload/weights/facial_expression.weights').expect_partial()
+    yolo.load_weights('./imgupload/weights/yolov3-dog.tf').expect_partial()
     print('weights loaded')
 
     class_names = [c.strip() for c in open('./imgupload/data/labels/dogs.names').readlines()]

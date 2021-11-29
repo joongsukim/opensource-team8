@@ -1,11 +1,59 @@
 <!-- 메인화면 -->
 <!DOCTYPE html>
 <html lang="ko">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+    body
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    h1
+    {
+        color: white;
+    }
+    h2
+    {
+        color: white;
+    }
+    input[type=button]
+    {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background: var(--button-bg-color);
+        color: var(--button-color);
+
+        margin: 0;
+        padding: 0.5rem 1rem;
+
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+
+        border: none;
+        border-radius: 4px;
+
+        display: inline-block;
+        width: auto;
+        --button-color: #212529;
+        --button-bg-color: #ffc107;
+        width: 120px;
+        height : 40px;
+        position : absolute;
+        left:50%;
+        top:50%;
+        margin : -20px -60px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>강아지 표정 분석기</title>
 </head>
-<body>
+<body bgcolor='#666666'>
 <div align="center"><h1>강아지 표정 분석기</h1>
 <h2>강아지가 무슨 생각을 하고 있나 알아봅시다</h2>
 <a href="image_upload"><input type="button" value="시작하기 -> "></a></div>

@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+    body
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1
+    {
+        color: white;
+    }
+
+    .img-responsive
+    {
+        width: 30%;
+        margin-left: 35%;
+    }
+    img
+    {
+        display : block;
+        margin : auto;
+    }
+    input[type="button"]
+    {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background: var(--button-bg-color);
+        color: var(--button-color);
+
+        margin: 0;
+        padding: 0.5rem 1rem;
+
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+
+        border: none;
+        border-radius: 4px;
+
+        display: inline-block;
+        width: auto;
+        --button-color: #212529;
+        --button-bg-color: #ffc107;
+        --button-hover-bg-color: #e0a800;
+
+        width: 120px;
+        height : 40px;
+        position : absolute;
+        left:50%;
+        top:50%;
+        margin : 160px -60px;
+    }
+    .img-responsive
+    {
+        display: block;
+        margin: 0px auto;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>dog image</title>
 </head>
-<body>
+<body bgcolor='#666666'>
 {% block content %}
 
     {% for dog in dog_images %}
@@ -12,10 +75,12 @@
         <h1 align="center"> {{ dog.name }} </h1>
 
         <!-- 사이즈 조절, 모양 만들기 및 가운데 정렬 필요 -->
-        <div><img src="{{ dog.dog_image.url }}" class="img-responsive" style="width: 30%; margin-left: 35%;" /></div>
+        <div style="text-align : center;"><img src="{{ dog.dog_image.url }}" class="img-responsive"/></div>
     {% endfor %}
 
-<div align="center"><a href="process"><input type="button" value="분석하기 -> "></a></div>
+<div align="center">
+    <a href="process"><input type="button" value="분석하기 -> "></a>
+</div>
 
 
     <!-- 이미지 파일 처리하는 과정으로 전환. View.py 활용 -->
