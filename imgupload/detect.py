@@ -26,7 +26,6 @@ def detect(input_jpg, output):
     #label
     class_names = [c.strip() for c in open('./imgupload/data/labels/dogs.names').readlines()]
     print('classes loaded')
-
     raw_images = []
     images = input_jpg
     img_raw = tf.image.decode_image(
@@ -48,9 +47,11 @@ def detect(input_jpg, output):
             print('\t{}, {}, {}'.format(class_names[int(classes[0][i])],
                                         np.array(scores[0][i]),
                                         np.array(boxes[0][i])))
+            class_process = class_names[int(classes[0][i])]
 
         img = cv2.cvtColor(raw_img.numpy(), cv2.COLOR_RGB2BGR)
         img = draw_outputs(img, (boxes, scores, classes, nums), class_names)
         cv2.imwrite(output + 'detection' + str(num) + '.jpg', img)
         print('output saved to: {}'.format(output + 'detection' + str(num) + '.jpg'))
 
+        return class_process

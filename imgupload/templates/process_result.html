@@ -35,14 +35,14 @@
     <!--분석 결과 이미지 삽입-->
     <img src = "{%static 'images/detection1.jpg'%}">
     <!-- html, css로 기존 기획한 페이지처럼 구성. 수정 전에는 이 부분을 지우고 서버 실행시키기 -->
-    {% if 'neutral' in class_names %}  <!-- 라벨링 결과가 레이블이 무표정일 경우 -->
+    {% if 'neutral' in exp_class %}  <!-- 라벨링 결과가 레이블이 무표정일 경우 -->
          <p>저는 지금 그냥 그래요 ૮ ・ﻌ・ა</p>
-    {% elif 'smile' in class_names %}  <!-- 라벨링 결과가 'smile'일 경우 -->
-         <p>저는 지금 기뻐요 ๑'ٮ'๑</p>
-    {% elif 'angry' in class_names %}  <!-- 라벨링 결과가 레이블이 'angry'일 경우 -->
-         <p>저는 지금 화나요 ٩(๑`ȏ´๑)۶</p>
+    {% elif 'smile' in exp_class %}  <!-- 라벨링 결과가 'smile'일 경우 -->
+         <p>저는 지금 기뻐요 ૮ ๑'ٮ'๑ა</p>
+    {% elif 'angry' in exp_class %}  <!-- 라벨링 결과가 레이블이 'angry'일 경우 -->
+         <p>저는 지금 화나요 ٩૮ ๑`ȏ´๑ა۶</p>
     {% else %}
-         <p>지금 기분을 잘 모르겠어요 (◉_◉)</p>
+         <p>지금 기분을 잘 모르겠어요 ૮ ◉_◉ა</p>
     {% endif %}
 </body>
 </html>
