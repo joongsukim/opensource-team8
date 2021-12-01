@@ -38,6 +38,7 @@
         --button-color: #212529;
         --button-bg-color: #ffc107;
         --button-hover-bg-color: #e0a800;
+        margin: 40px;
     }
 
     h1
@@ -49,6 +50,13 @@
     {
         display: block;
         margin: 0px auto;
+    }
+
+    img
+    {
+        display : block;
+        width: auto;
+        height: 300px;
     }
 
 </style>
@@ -63,7 +71,7 @@
     {% endfor %}
 
     <!--분석 결과 이미지 삽입-->
-    <div class="final_image">
+    <div class="final_image" align="center">
         <img src = "{%static 'images/detection1.jpg'%}">
     </div>
     <!-- html, css로 기존 기획한 페이지처럼 구성. 수정 전에는 이 부분을 지우고 서버 실행시키기 -->

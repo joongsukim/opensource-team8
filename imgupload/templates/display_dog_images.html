@@ -51,7 +51,8 @@
         position : absolute;
         left:50%;
         top:50%;
-        margin : 160px -60px;
+        margin : 85px -60px;
+        cursor: pointer;
     }
     .img-responsive
     {
@@ -74,11 +75,9 @@
         <div style="text-align : center;"><img src="{{ dog.dog_image.url }}" class="img-responsive"/></div>
     {% endfor %}
 
-<div align="center">
-    <a href="process"><input type="button" value="분석하기 -> "></a>
+<div title="분석하기">
+    <a href="process" ><input type="button" style='cursor:pointer;' value="분석하기 -> "></a>
 </div>
-
-
     <!-- 이미지 파일 처리하는 과정으로 전환. View.py 활용 -->
 {% endblock %}
 
