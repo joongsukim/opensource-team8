@@ -14,11 +14,41 @@
     {
         font-family: 'Noto Sans KR', sans-serif;
         color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        
+        background: var(--button-bg-color);
+        color: var(--button-color);
+        
+        margin: 0;
+        padding: 0.5rem 1rem;
+        
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+        
+        border: none;
+        border-radius: 4px;
+        
+        display: inline-block;
+        width: auto;
+        --button-color: #212529;
+        --button-bg-color: #ffc107;
+        --button-hover-bg-color: #e0a800;
     }
 
     h1
     {
         color: white;
+    }
+    
+    .final_image
+    {
+        display: block;
+        margin: 0px auto;
     }
 
 </style>
@@ -33,7 +63,9 @@
     {% endfor %}
 
     <!--분석 결과 이미지 삽입-->
-    <img src = "{%static 'images/detection1.jpg'%}">
+    <div class="final_image">
+        <img src = "{%static 'images/detection1.jpg'%}">
+    </div>
     <!-- html, css로 기존 기획한 페이지처럼 구성. 수정 전에는 이 부분을 지우고 서버 실행시키기 -->
     {% if 'neutral' in exp_class %}  <!-- 라벨링 결과가 레이블이 무표정일 경우 -->
          <p>저는 지금 그냥 그래요 ૮ ・ﻌ・ა</p>
