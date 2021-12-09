@@ -35,6 +35,7 @@ def process(request):
     for dog in dogs:
         dog_pwd='./media/'+dog.dog_image.name #dog.dog_image.name은 이미지 파일의 이름 불러옴
 
+    #from .detect import *로 detect.py 파일 불러옴
     class_name = detect(dog_pwd, './imgupload/static/images/') #detect('파일 경로', 'output 경로')
 
     return render(request, 'process_result.html', {'dog_images': dogs, 'exp_class': class_name})
